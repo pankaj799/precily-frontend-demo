@@ -28,13 +28,27 @@ function UserForm() {
 
 
 
-    const onFinish = (values) => {
+    const onAddFinish = (values) => {
         console.log('Success:', values);
-        debugger;
+        
+        instance.post('createUser', {name : values.name , username : values.username})
+                .then(response => {
+                //   console.log(response)
+                  swal("Good job!", "User Created!", "success");
+                })
+                .catch(err =>{
+                //   console.log(err)
+                  swal("Error Occured!", "Data is not saved!", "error");
+                })
+      };
+
+      const onUpdateFinish = (values) => {
+        console.log('Success:', values);
+       
         instance.post('updateData', {name : values.name , username : values.username})
                 .then(response => {
                 //   console.log(response)
-                  swal("Good job!", "Data is saved!", "success");
+                  swal("Good job!", "User Updated!", "success");
                 })
                 .catch(err =>{
                 //   console.log(err)
@@ -47,7 +61,7 @@ function UserForm() {
       };
 
       const valid = (valueparam) =>{
-          debugger;
+          
         return valueparam  ? String(valueparam.valueparam) : ''  
       }
 
@@ -72,7 +86,7 @@ function UserForm() {
                       value: valueparam   ? String(valueparam) : inputusername,
                     },
                   ]}
-                onFinish={onFinish}
+                onFinish={valueparam ? onUpdateFinish : onAddFinish }
                 onFinishFailed={onFinishFailed}
                 >
                 <Form.Item
