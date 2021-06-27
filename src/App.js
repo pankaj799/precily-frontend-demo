@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import UserForm from './components/userForm';
 import Alldata from './components/Alldata';
+import Resizablebox from './components/Resizablebox';
 
 import AppLayout from './components/hoc/Layout';
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/Add-data" exact component={UserForm} />
       <Route path="/edit-data/:value" exact component={UserForm} />
       <Route path="/All-data" exact component={Alldata} />
+      <Route path="/Resizeable" exact component={Resizablebox} />
       <Redirect to="/Add-data" />
     </Switch>
   )

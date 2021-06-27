@@ -29,6 +29,9 @@ function AppLayout({children}) {
                     <Menu.Item key="2" icon={<UserOutlined />}>
                             <Link to="/All-data" style={{ color: 'white', textDecoration: 'none' }}>UPDATE DATA</Link>
                     </Menu.Item>
+                    <Menu.Item key="3" icon={<UserOutlined />}>
+                            <Link to="/Resizeable" style={{ color: 'white', textDecoration: 'none' }}>Resizeable</Link>
+                    </Menu.Item>
                 </Menu>
                 </Sider>
                 <Layout>
